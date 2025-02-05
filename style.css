@@ -69,7 +69,7 @@ form {
     position: relative;
 }
 
-form > * {
+form>* {
     position: absolute;
 }
 
@@ -78,9 +78,10 @@ label {
 }
 
 input {
-    height: inherit; /* inherits height from container/parent- in this case from form */
+    height: inherit;
+    /* inherits height from container/parent- in this case from form */
     width: 100%;
-    left:0;
+    left: 0;
     outline: none;
     border: solid 1px hsla(0, 36%, 70%, 0.543);
     border-radius: 50px;
@@ -121,14 +122,15 @@ button:hover {
     color: var(--primary-soft);
 }
 
-.error { /* used to create border when error occurs, remove class from html once you know styles work- will add this function later */
+.error {
+    /* used to create border when error occurs, remove class from html once you know styles work- will add this function later */
     border: 2px solid var(--primary-soft);
 }
 
 .error-icon,
 .error-text { /* hides these styles while there is no error- use JS to toggle on */
-    display: none;
-}
+   display: none;
+} 
 
 header,
 main {
@@ -136,18 +138,72 @@ main {
 }
 
 h1,
-p:not([class]){ /* becuase there was no class set to p */
+p:not([class]) {
+    /* becuase there was no class set to p */
     margin-bottom: 1.5rem;
 }
 
-h1 span, 
+h1 span,
 p:not([class]),
 input::placeholder {
     color: var(--primary-desaturated);
 }
 
+/**** Desktop Styles ****/
+@media only screen and (min-width: 800px) {
+    body {
+        background: url(./images/bg-pattern-desktop.svg) center/cover;
+        display: grid;
+        grid-template: repeat(12, 1fr)/ repeat(12, 1fr);
+        height: 100vh;
+        overflow: hidden;
+    }
 
+    picture {
+        grid-row: 1/-1;
+        /* values go from which row, in this case 1st row to last row */
+        grid-column: 8/-1;
+    }
 
+    header {
+        grid-row: 2;
+        grid-column: 2/7;
+    }
 
+    .logo {
+        width: initial;
+    }
 
+    main {
+        grid-row: 5;
+        grid-column: 2/6;
+        text-align: left;
+        justify-content: start;
+        align-items: start;
+    }
 
+    h1 {
+        font-size: 3em;
+        letter-spacing: 1.2rem;
+    }
+
+    button {
+        width: 90px;
+    }
+
+    .error-icon {
+        right: 80px;
+    }
+
+    h1,
+    p:not([class]) {
+        /* becuase there was no class set to p */
+        margin-bottom: 1.7rem;
+    }
+
+    p:not([class]),
+    form {
+        width: 400px;
+    }
+
+}
